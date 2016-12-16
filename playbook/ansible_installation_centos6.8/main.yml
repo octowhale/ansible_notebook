@@ -1,0 +1,26 @@
+---
+
+# ansible installation on CentOS6.8 
+
+- name: "ansible installation on CentOS6.8 via yum "
+  hosts: vbox10
+  sudo: True
+  tasks:
+    - name: install fedora project repo
+      # install fedora epel via system command
+      # this will be raise a error if epel is arealy installed
+      # command: "yum -y install https://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm" 
+      
+      # install fedora eple via ansible yum 
+      yum: name="https://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm" 
+
+    - name: install ansible
+      yum: name=ansible
+
+    - name: check ansile version
+      shell: "ansible --version"
+      # module register will declare a variable to cellect the shell output above
+      register: ansible_version_result      
+      
+    - name: print out ansile version
+      debug: "msg={{ ansible_version_result.stdout }} "
