@@ -7,4 +7,5 @@ ansible_notebook
 + [ansible -h](./ansible_help_zhcn.md)
 
 ## ansible playbook
-+ [在 CentOS6.8 上安装ansbile ](./playbook/ansible_installation_centos6.8/)
++ [在 CentOS6.8 上安装 ansbile ](./playbook/ansible_installation_centos6.8/)
++ [在 CentOS7 上安装 gogs git 管理软件](./playbook/gogs_playbook_centos7/)
