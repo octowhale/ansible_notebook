@@ -1,0 +1,6 @@
+---
+
+  # Handles for mysql57
+
+- name: restart mysqld
+  service: name=ntpd state=restarted

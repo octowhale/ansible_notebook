@@ -1,0 +1,34 @@
+---
+
+# gogs installation on CentOS 7
+
+- name: apply common configuration to hosts
+  hosts: gogs-server
+  remote_user: root
+  
+  roles:
+    - common
+
+
+- name: install MySQL57
+  hosts: mysql-server
+  remote_user: root
+  
+  vars_files:
+    - vars/dbserver.yml
+    
+  roles:
+    - db
+
+
+- name: install gogs
+  hosts: gogs-server
+  remote_user: root
+  
+  vars_files:
+    - vars/gogs.yml
+    - vars/dbserver.yml
+    
+  
+  roles:
+    - gogs

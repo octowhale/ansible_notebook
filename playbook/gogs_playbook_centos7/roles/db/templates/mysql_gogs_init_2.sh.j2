@@ -1,0 +1,28 @@
+#!/bin/bash
+#
+#
+
+# MYSQL SET
+# + get mysql temporary password
+MYSQL57_ROOT_TMP_PWD=$(grep "A temporary password" /var/log/mysqld.log |awk '{print $NF}')
+# + update mysql root password
+MYSQL_PWD=${MYSQL57_ROOT_TMP_PWD} mysql -u root --connect-expired-password -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'Gogs@@mysql57' ;"
+
+
+# MYSQL_PWD=${MYSQL57_ROOT_TMP_PWD} mysql option  -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'Gogs@@mysql57' ;"
+# connect-expired-password 
+
+# mysql -u root -p${MYSQL57_ROOT_TMP_PWD} --connect-expired-password -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'Gogs@@mysql57' ;"
+
+# < /root/mysql_gogs_init.sql
+
+# cat > ~/.my.cnf <<EOF
+# [client]
+# user=root
+# password=${MYSQL57_ROOT_TMP_PWD}
+# EOF
+
+
+# chmod 600 ~/.my.cnf
+
+# MYSQL_PWD=Iesqvlw:b6p4 mysql option  -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'Gogs@@mysql57' ;"

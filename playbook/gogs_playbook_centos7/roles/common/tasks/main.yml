@@ -1,0 +1,36 @@
+---
+
+  # install ntp server
+  # install wget unzip  and so on
+
+- name: Install common dependencies
+  yum: name={{ item }} state=installed
+  with_items:
+    - wget
+    - unzip
+    - git
+    - libselinux-python
+
+- name: Install openssh server
+  yum: name=openssh-server state=present
+  tags: ssh
+  notify: restart sshd
+
+# - name: Configure openssh server
+  # tags: sshd
+  # notify: restart sshd
+
+- name: Install ntp
+  yum: name=ntp state=present
+  tags: ntp
+
+- name: Configure ntp file
+  template: src=ntp.conf.j2 dest=/etc/ntp.conf
+  notify: restart ntpd
+  tags: ntp
+  
+  
+- name: Start ntp service
+  service: name=ntpd state=started enabled=yes
+  tags: ntp
+

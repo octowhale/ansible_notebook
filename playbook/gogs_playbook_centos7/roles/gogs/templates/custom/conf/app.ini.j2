@@ -1,0 +1,50 @@
+APP_NAME = Gogs: Go Git Service
+RUN_USER = root
+RUN_MODE = prod
+
+[database]
+DB_TYPE  = mysql
+HOST     = {{ db_host }}:{{ db_port }}
+NAME     = {{ db_gogs_dbname }}
+USER     = {{ db_gogs_user }}
+PASSWD   = {{ db_gogs_password }}
+SSL_MODE = disable
+PATH     = data/gogs.db
+
+[repository]
+ROOT = {{ gogs_repository }}
+
+[server]
+DOMAIN       = {{ gogs_host }}
+HTTP_PORT    = 3000
+ROOT_URL     = http://{{ gogs_host }}:3000/
+DISABLE_SSH  = false
+SSH_PORT     = 22
+OFFLINE_MODE = false
+
+[mailer]
+ENABLED = false
+
+[service]
+REGISTER_EMAIL_CONFIRM = false
+ENABLE_NOTIFY_MAIL     = false
+DISABLE_REGISTRATION   = false
+ENABLE_CAPTCHA         = true
+REQUIRE_SIGNIN_VIEW    = false
+
+[picture]
+DISABLE_GRAVATAR        = false
+ENABLE_FEDERATED_AVATAR = false
+
+[session]
+PROVIDER = file
+
+[log]
+MODE      = file
+LEVEL     = Info
+ROOT_PATH = {{ gogs_package_store_dir }}/gogs/log
+
+[security]
+INSTALL_LOCK = true
+SECRET_KEY   = {{ gogs_security_key }}
+

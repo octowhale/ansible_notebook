@@ -1,0 +1,61 @@
+---
+
+# install MySQL 5.7 on CentOS 7
+
+- name: Install mysql57 repo
+  yum: name={{ db_repo_rpm }} state=present
+  tags: mysql
+
+
+# NOTE: there is something strange here
+#   mysql-community-server mysql-community-devel can not be installed with with_items
+#   It will occur a mistake like follow. 
+#   Maybe something wrong with the dash(-) symbal. 
+
+# TASK [db : Install mysql-community-server mysql-community-devel of mysql] ******
+# failed: [mysql-server] (item=mysql-community-server) => {"failed": true, "item": "mysql-community-server", "msg": "one of the following is required: name,list"}
+# failed: [mysql-server] (item=mysql-community-devel) => {"failed": true, "item": "mysql-community-devel", "msg": "one of the following is required: name,list"}
+
+# - name: Install mysql-community-server mysql-community-devel of mysql 
+  # yum: name= {{ item }} state=installed
+  # with_items:
+    # - 'mysql-community-server'
+    # - 'mysql-community-devel'
+  # tags: mysql
+
+- name: Install mysql-community-server
+  yum: name=mysql-community-server state=installed
+
+- name: Install mysql-community-devel
+  yum: name=mysql-community-devel state=installed
+    
+- name: Start mysqld service
+  service: name=mysqld state=started enabled=yes
+  tags: mysql
+
+- name: Copy create database SHELL file
+  template: src=mysql_gogs_init.sh.j2 dest=/root/mysql_gogs_init.sh mode=0700
+  
+# - name: Copy create database SHELL file
+  # template: src=mysql_gogs_init_2.sh.j2 dest=/root/mysql_gogs_init.sh mode=0700
+  
+- name: Copy create database SQL file 
+  template: src=mysql_gogs_init.sql.j2 dest=/root/mysql_gogs_init.sql mode=0600
+  
+- name: Run mysql_gogs_init.sh 
+  shell: /root/mysql_gogs_init.sh
+
+# - name: Delete mysql_gogs_init.sh and mysql_gogs_init.sql
+- name: Delete mysql_gogs_init.sh
+  file: path=/root/mysql_gogs_init.sh state=absent
+  
+- name: Delete mysql_gogs_init.sql
+  file: path=/root/mysql_gogs_init.sql state=absent
+    
+
+# - name: Import gogs_init.sql similar to mysql -u <username> -p <password> < hostname.sql
+# - name: Import gogs_init.sql to create database and grant user
+  # mysql_db:
+    # state: import
+    # name: all
+    # target: /root/mysql_gogs_init.sql

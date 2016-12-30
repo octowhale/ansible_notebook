@@ -1,0 +1,36 @@
+---
+
+# Install gogs git manager from gogs.io 
+
+- name: Download gogs package {{ gogs_package_version }}
+  # command: wget -c http://7d9nal.com2.z0.glb.qiniucdn.com/gogs_v0.9.113_linux_amd64.tar.gz -O /opt/gogs_v0.9.113_linux_amd64.tar.gz
+  # [WARNING]: Consider using get_url or uri module rather than running wget
+  get_url: 
+    url: "{{ gogs_package_url }}"
+    dest: "{{ gogs_package_store_dir }}/{{ gogs_package_version }}"
+
+# - name: Unpack gogs package gogs_v0.9.113_linux_amd64.tar.gz
+  # command: tar zxf /opt/gogs_v0.9.113_linux_amd64.tar.gz -C /opt/
+
+- name: Unarchive gogs package {{ gogs_package_version }}
+  # unarchive: src="{{ gogs_package_store_dir }}/{{ gogs_package_version }}" dest={{ gogs_package_store_dir }} creates="{{ gogs_package_store_dir }}/gogs" remote_src=True
+  
+  unarchive: src="{{ gogs_package_store_dir }}/{{ gogs_package_version }}" dest={{ gogs_package_store_dir }} creates="{{ gogs_package_store_dir }}/gogs" copy=no  
+  # TASK [gogs : Unarchive gogs package gogs_v0.9.113_linux_amd64.tar.gz] **********
+  # skipping: [gogs-server]
+  
+  # [WARNING]: Consider using unarchive module rather than running tar
+  # command: tar zxf "{{ gogs_package_store_dir }}/{{ gogs_package_version }}" -C {{ gogs_package_store_dir }}
+  
+# - name: Copy gogs start script file
+  # template: src=gogs-start.sh.j2 dest=/opt/gogs/gogs-start.sh mode=0700
+
+- name: mkdir directory 
+  file: path="{{ gogs_package_store_dir }}/gogs/custom/conf" state=directory
+  
+- name: Copy app.ini of gogs 
+  template: src=custom/conf/app.ini.j2  dest="{{ gogs_package_store_dir }}/gogs/custom/conf/app.ini"
+  
+- name: Start gogs web manager
+  command: "{{ gogs_package_store_dir }}/gogs/gogs web"
+  
