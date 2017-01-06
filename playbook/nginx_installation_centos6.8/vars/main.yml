@@ -1,0 +1,11 @@
+---
+
+redhat_pkg:
+  - nginx
+  - python
+
+ubuntu_pkg:
+  - python-selinux
+  - nginx
+
+  
