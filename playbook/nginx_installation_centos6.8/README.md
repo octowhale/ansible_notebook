@@ -1,6 +1,6 @@
 # 注意事项
 
-参考 [](defaults/main.yml)
+参考 [defaults/main.yml]
 
 ```yaml
 # 关于缩进
@@ -21,7 +21,7 @@
 
 以下三种写法等价
 
-参考 [](main.yml)
+参考 [main.yml]
 
 ```yaml
 # 01 单行写法
@@ -46,7 +46,7 @@ file:
 
 ## 变量引用
 
-参考 [](main.yml)
+参考 [main.yml]
 
 ```yaml
 # 使用引号将变量括起来. ansible 2.2.0.0
@@ -96,7 +96,7 @@ become_user: BECOME_USER
 
 ## jekyll2 语法
 
-[](templates/site.j2)
+[templates/site.j2]
 
 ```jinja
 
