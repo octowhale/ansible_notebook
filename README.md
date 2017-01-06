@@ -12,3 +12,5 @@ ansible_notebook
 
 + [在 CentOS6.8 上安装 ansbile ](./playbook/ansible_installation_centos6.8/)
 + [在 CentOS7 上安装 gogs git 管理软件](./playbook/gogs_playbook_centos7/)
++ [在 CentOS6.8 上安装 nginx ](./playbook/nginx_installation_centos6.8/README.md)
+
