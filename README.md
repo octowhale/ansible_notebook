@@ -6,7 +6,8 @@ ansible_notebook
 ## ansible 技巧
 
 + [ansible -h](./notebook/ansible_help_zhcn.md)
-+ [ansible playbook 编辑小技巧](./notebook/2016-12-30-ansible-playbook-tips-01.md)
++ [ansible playbook 编辑小技巧 01](./notebook/2016-12-30-ansible-playbook-tips-01.md)
++ [ansible playbook 编辑小技巧 01](./notebook/2016-01-06-ansible-playbook-tips-02.md)
 
 ## ansible playbook
 
