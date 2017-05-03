@@ -8,6 +8,7 @@ ansible_notebook
 + [ansible -h](./notebook/ansible_help_zhcn.md)
 + [ansible playbook 编辑小技巧 01](./notebook/2016-12-30-ansible-playbook-tips-01.md)
 + [ansible playbook 编辑小技巧 01](./notebook/2016-01-06-ansible-playbook-tips-02.md)
++ [ansible 修改 sysctl 的值](./notebook/2017-05-03-ansible-更新sysctl值.md)
 
 ## ansible playbook
 
