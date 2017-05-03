@@ -36,8 +36,13 @@ keywords: playbook, tips
         name: net.ipv4.tcp_keepalive_time
         value: 120
         state: present
+        # 错误位置
         # ignore_errors: yes
         # ignore_errors 只能用在command,shell 等模块后面，报错提示中会注明
+        
+      # 正确位置  
+      ignore_errors: yes
+      
         
     # - name: update value to 120 via replace module
       # replace:
