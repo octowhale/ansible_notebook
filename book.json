@@ -1,0 +1,23 @@
+{
+  "plugins": [
+    "-disqus",
+    "-sharing",
+    "sitemap",
+    "github-buttons"
+  ],
+  "pluginsConfig": {
+    "disqus": {
+      "shortName": "tangx"
+    },
+    "sitemap": {
+      "hostname": "https://ansible.octowhale.com/"
+    },
+    "github-buttons": {
+      "repo": "octowhale/gitbooks-ansible",
+      "types": [
+        "star"
+      ],
+      "size": "small"
+    }
+  }
+}
