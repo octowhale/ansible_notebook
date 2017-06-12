@@ -3,6 +3,7 @@
 + [文档与实验](./chapters/experiments/index.md)
   + [ansible 帮助文档](./chapters/experiments/ansible_help_zhcn.md)
   + [ansible 2.3.0.0 条件判断](./chapters/experiments/2017-05-09-ansible-2.3.0.0-condition-conditional-examples.md)
+  + [使用正则表达式标识主机](./chapters/experiments/2017-06-12-how-to-use-pattern-to-spicefy-host-or-group.md)
 
 
 + [常用技巧提示](./chapters/tips/index.md)
