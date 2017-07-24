@@ -21,3 +21,4 @@
   + [command 改变目录执行命令](./chapters/modules/change-path-to-execute-command.md)
   + [sysctl 更新系统内核参数](./chapters/modules/2017-05-03-sysctl-update-system-kernel-variables.md)
   + [with_items 循环引用变量](./chapters/modules/with_items-loop-to-quote.md)
+  + [user 模块创建用户和修改密码](./chapters/modules/user-module-upate-user-password.md)
