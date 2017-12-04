@@ -1,13 +1,30 @@
 {
+  "title":"Salt 新手入门与精通",
+  "author": "octowahle",
+  "theme-default": {
+    "showLevel": true
+  },
+  "links":{
+    "sidebar":{
+      "Aloha Mr.Tang":"https://tangx.in"
+    }
+  },
   "plugins": [
-    "-disqus",
-    "-sharing",
+    "sharing",
     "sitemap",
-    "github-buttons"
+    "github",
+    "codesnippet",
+    "splitter",
+    "page-toc-button",
+    "editlink",
+    "back-to-top-button",
+    "-lunr", "-search", "search-plus",
+    "github-buttons@2.1.0",
+    "theme-default"
   ],
   "pluginsConfig": {
-    "disqus": {
-      "shortName": "tangx"
+    "theme-default": {
+        "showLevel": true
     },
     "sitemap": {
       "hostname": "https://ansible.octowhale.com/"
@@ -18,6 +35,13 @@
         "star"
       ],
       "size": "small"
+    },
+    "github": {
+      "url": "https://github.com/octowhale/gitbooks-ansible"
+    },
+    "editlink": {
+        "base": "https://github.com/octowhale/gitbooks-ansible/blob/master/",
+        "label": "编辑本页"
     }
   }
 }
