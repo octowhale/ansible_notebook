@@ -80,3 +80,8 @@ Should be written as:
       - \"{{ foo }}\"
 "}
 ```
+
+### 更多循环内容
+
++ 官方英文： http://docs.ansible.com/ansible/latest/playbooks_loops.html
++ 中文翻译： http://ansible-tran.readthedocs.io/en/latest/docs/playbooks_loops.html
